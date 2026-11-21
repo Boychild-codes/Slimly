@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slimly: Compress Images &amp; Videos Online Free, Without Losing Quality</title>
+<meta name="description" content="Slimly compresses JPG, PNG, WebP and video files right in your browser. Reduce file size without visible quality loss. Private: your files never leave your device.">
+<meta name="keywords" content="compress image online, reduce image size, video compressor, compress image without losing quality, compress to 100KB, lossless compression">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Slimly","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="w"><a class="logo" href="#home">Slimly</a>
+<nav aria-label="Main"><a href="#home">Compressor</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
+<main class="w">
+
+<section class="sec" id="home">
+<h1>Compress images and videos. Keep them sharp.</h1>
+<p class="lede">Slimly makes JPG, PNG, WebP and video files smaller with no visible quality loss. Everything happens in your browser, so your files are never uploaded.</p>
+<div class="ad" data-ad>Advertisement (AdSense slot)</div>
+<label id="drop" for="file"><b>Drop images or videos here</b><span>or tap to choose files</span><input id="file" type="file" accept="image/*,video/*" multiple></label>
+<div class="opts">
+<label class="f">Image quality<select id="mode"><option value="lossless">Lossless (identical pixels)</option><option value="vis" selected>Visually lossless (recommended)</option><option value="bal">Balanced (smaller)</option></select></label>
+<label class="f">Image format<select id="fmt"><option value="auto" selected>Auto</option><option value="image/webp">WebP</option><option value="image/jpeg">JPEG</option><option value="image/png">PNG (lossless only)</option></select></label>
+<label class="f">Longest side <output id="maxo">Original</output><input id="max" type="range" min="0" max="8" value="0"></label>
+<label class="f">Video bitrate <output id="bro">4 Mbps</output><input id="br" type="range" min="1" max="16" value="8"></label>
+</div>
+<div class="bar"><button class="p" id="go" disabled>Compress all</button><button id="clear" disabled>Clear</button><span class="quota" id="quota"></span></div>
+<div id="list"></div>
+<div class="ad" data-ad>Advertisement (AdSense slot)</div>
+<h2>How it works</h2>
+<ul class="t"><li>Add your files. Free use covers 2 compressions a day.</li><li>Pick a quality level. “Visually lossless” is smaller and looks identical to the eye.</li><li>Download. If a result isn’t smaller, we keep your original.</li></ul>
+<p class="meta">Lossless mode keeps every pixel. Photos and video are already compressed, so most savings come from re-encoding that your eyes can’t distinguish. Video is processed in real time in your browser. For frame-exact lossless video, use a desktop tool such as FFmpeg.</p>
+<h2>Popular uses</h2>
+<p>Compress an image to 100KB for an online application, reduce photo size for WhatsApp or email, convert PNG or JPG to WebP for a faster website, or shrink a video to fit an upload limit.</p>
+</section>
+
+<section class="sec" id="pricing">
+<h1>Pricing</h1>
+<p class="lede">Start free. Go Pro when you need more.</p>
+<div class="grid">
+<div class="card"><h3>Free</h3><div class="price">$0</div><ul class="t"><li>2 compressions per day</li><li>Watch a short ad to unlock 3 more</li><li>Images and video</li></ul></div>
+<div class="card"><h3>Pro</h3><div class="price">$4.99<small>/month</small></div><ul class="t"><li>Unlimited compressions</li><li>No ads</li><li>Batch downloads, priority features</li></ul>
+<p><a class="btn p" id="sub" target="_blank" rel="noopener">Subscribe</a> <button id="havekey">I have a key</button></p></div>
+</div>
+<p class="meta">Prices are examples. Cancel anytime from your payment provider’s receipt email.</p>
+</section>
+
+<section class="sec" id="faq">
+<h1>FAQ</h1>
+<h3>Are my files uploaded?</h3><p>No. Compression runs inside your browser. Your files stay on your device.</p>
+<h3>Is it really lossless?</h3><p>Lossless mode keeps every pixel identical. Visually lossless mode changes data your eyes can’t notice and gives smaller files.</p>
+<h3>Why is video slow?</h3><p>Your browser re-records the video in real time, so a 1-minute clip takes about a minute. Keep the tab open.</p>
+<h3>What counts as a compression?</h3><p>Each file you compress counts once. The free limit resets daily.</p>
+<h3>How do I unlock more?</h3><p>Watch a short ad for 3 more compressions, or subscribe to Pro for unlimited use without ads.</p>
+</section>
+
+<section class="sec" id="about">
+<h1>About Slimly</h1>
+<p>Slimly is a free, privacy-first tool for making images and videos smaller. We believe you shouldn’t have to upload personal photos to a stranger’s server just to shrink them. The free plan is supported by ads, and Pro removes them.</p>
+</section>
+
+<section class="sec" id="contact">
+<h1>Contact</h1>
+<p>Questions, bug reports, refunds or privacy requests: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>. We aim to reply within 3 business days.</p>
+<div class="card"><label class="f">Your email<input type="email" id="ce"></label><br><label class="f">Message<textarea id="cm" rows="4"></textarea></label><p><button class="p" id="cs">Send by email</button></p></div>
+</section>
+
+<section class="sec" id="privacy">
+<h1>Privacy Policy</h1><p class="meta">Effective 21 November 2026. Operator: [Your Name or Company], [Country]. Contact: support@yourdomain.com.</p>
+<h2>Your files</h2><p>Images and videos you add are processed locally in your browser. We do not upload, store or view them.</p>
+<h2>Information we collect</h2><ul class="t"><li>Usage settings stored on your device (daily count, bonus unlocks, Pro key, cookie choice).</li><li>Basic analytics and server logs (IP address, browser type, pages visited) if analytics is enabled.</li><li>Data from advertising partners such as Google AdSense and Meta Audience Network: cookies or similar identifiers used to show and measure ads.</li><li>Payment details are handled by our payment provider. We do not see your card number.</li></ul>
+<h2>How we use it</h2><p>To run the service, enforce free limits, prevent abuse, show ads, process subscriptions and improve the site.</p>
+<h2>Advertising and consent</h2><p>Ad partners may use cookies to personalise ads. Where the law requires, we ask for consent first. You can change your choice any time via “Cookie settings” in the footer, and you can also use your browser’s controls or Google’s Ads Settings.</p>
+<h2>Sharing</h2><p>We share data only with service providers (hosting, analytics, ads, payments) or when required by law. We do not sell your files.</p>
+<h2>Retention and security</h2><p>Local settings stay on your device until you clear them. Server logs are kept for a limited period. We use reasonable safeguards, but no system is perfectly secure.</p>
+<h2>Your rights</h2><p>Depending on where you live (including under Kenya’s Data Protection Act, 2019, and the GDPR), you may have the right to access, correct, delete or object to processing of your personal data. Email us to make a request.</p>
+<h2>Children</h2><p>Slimly is not directed to children under 13, and we do not knowingly collect their data.</p>
+<h2>Changes</h2><p>We may update this policy and will change the date above.</p>
+</section>
+
+<section class="sec" id="terms">
+<h1>Terms of Service</h1><p class="meta">Effective 21 November 2026.</p>
+<h2>Using Slimly</h2><p>By using Slimly you agree to these terms. You must have the right to process the files you add and must not use the service for unlawful content or to attack or abuse it.</p>
+<h2>Free and Pro plans</h2><p>The free plan has a daily limit, which may be extended by watching ads. Pro is a recurring subscription billed by our payment provider until cancelled. You can cancel at any time and keep access until the end of the paid period. Refunds are handled case by case; contact us within 7 days of a charge.</p>
+<h2>No guarantee of results</h2><p>Compression results vary. Always keep your original files. Re-encoded files may differ slightly from originals unless lossless mode is used.</p>
+<h2>Intellectual property</h2><p>You keep all rights to your files. The Slimly site, name and code belong to the operator.</p>
+<h2>Disclaimer and liability</h2><p>Slimly is provided “as is” without warranties. To the extent permitted by law, we are not liable for lost data, indirect damages or losses beyond the amount you paid in the previous 12 months.</p>
+<h2>Changes and law</h2><p>We may update these terms. Continued use means you accept the changes. These terms are governed by the laws of [Your Country].</p>
+</section>
+
+<section class="sec" id="cookies">
+<h1>Cookie Policy</h1>
+<p>We use local storage and cookies for: <b>essential</b> functions (your daily limit and Pro key), <b>analytics</b> (if enabled) and <b>advertising</b> (AdSense and partners). Essential items are always on. Analytics and advertising run only if you accept.</p>
+<p><button id="reset">Change my cookie choice</button></p>
+</section>
+</main>
+
+<footer><div class="w"><p><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="#cookies">Cookies</a><a href="#contact">Contact</a><a href="#cookies" id="cs2">Cookie settings</a></p><p>© 2026 Slimly. All rights reserved.</p></div></footer>
+
+<div class="ck" id="ck" role="dialog" aria-label="Cookie consent"><p style="margin:0 0 10px">We use cookies for ads and analytics. See our <a href="#cookies">Cookie Policy</a>.</p><button class="p" id="ca">Accept</button> <button id="cd">Essential only</button></div>
+
+<dialog id="gate"><h2 style="margin-top:0">Free limit reached</h2><p>You’ve used your 2 free compressions today. Continue by choosing one:</p>
+<p><button class="p" id="watch">Watch a short ad (+3 compressions)</button></p>
+<p><a class="btn" href="#pricing" id="topro">Go Pro for unlimited</a></p>
+<p id="adbox" class="ad" hidden></p>
+<p><button id="gx">Close</button></p></dialog>
+
+<dialog id="keyd"><h2 style="margin-top:0">Enter your Pro key</h2><label class="f">Key<input type="text" id="keyin" autocomplete="off"></label><p id="keymsg" class="meta"></p><p><button class="p" id="keyok">Activate</button> <button id="keyx">Cancel</button></p></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
