@@ -3,7 +3,7 @@
 /* ===== CONFIG: replace these before launch ===== */
 var CONFIG={
  freePerDay:2, adBonus:3, adSeconds:10,
- checkoutUrl:"https://example.com/checkout",   // Paystack / Flutterwave / Stripe payment link
+ checkoutUrl:"https://paystack.shop/pay/nnlwk8od2f",
  demoKeys:["SLIMLY-DEMO"],                     // REMOVE: validate keys on your server instead
  verifyKey:null,                               // function(key){return Promise<boolean>} calling your backend
  showRewardedAd:null                           // function(done){...} call done() after a real rewarded ad (AdMob/AdSense H5)
