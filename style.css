@@ -39,6 +39,11 @@ button:disabled{opacity:.5;cursor:default}
 .sav{font-weight:800;color:var(--good)}.sav.n{color:var(--warn)}
 progress{width:100%;height:6px;accent-color:var(--acc)}
 .acts{display:flex;flex-direction:column;gap:6px}
+.recommendation{display:inline-block;margin-top:5px;color:var(--acc);font-size:.82rem;font-weight:700}
+.compare{position:relative;width:100%;height:min(55vh,420px);overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#compareOutput{clip-path:inset(0 50% 0 0)}
+.compareDivider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:white;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
 .ad{margin:18px 0;min-height:90px;border:1px dashed var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:.8rem;text-align:center;padding:8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .price{font-size:2rem;font-weight:800}

@@ -20,12 +20,15 @@
 <div class="ad" data-ad>Advertisement (AdSense slot)</div>
 <label id="drop" for="file"><b>Drop images or videos here</b><span>or tap to choose files</span><input id="file" type="file" accept="image/*,video/*" multiple></label>
 <div class="opts">
+<label class="f">Preset<select id="preset"><option value="">Custom</option><option value="whatsapp">WhatsApp photo</option><option value="email">Email attachment</option><option value="web">Fast website</option><option value="application">Application upload</option></select></label>
 <label class="f">Image quality<select id="mode"><option value="lossless">Lossless (identical pixels)</option><option value="vis" selected>Visually lossless (recommended)</option><option value="bal">Balanced (smaller)</option></select></label>
 <label class="f">Image format<select id="fmt"><option value="auto" selected>Auto</option><option value="image/webp">WebP</option><option value="image/jpeg">JPEG</option><option value="image/png">PNG (lossless only)</option></select></label>
 <label class="f">Longest side <output id="maxo">Original</output><input id="max" type="range" min="0" max="8" value="0"></label>
 <label class="f">Video bitrate <output id="bro">4 Mbps</output><input id="br" type="range" min="1" max="16" value="8"></label>
+<label class="f">Target file size<select id="target"><option value="0">No target</option><option value="100">100 KB</option><option value="500">500 KB</option><option value="1024">1 MB</option><option value="-1">Custom</option></select></label>
+<label class="f" id="customTargetWrap" hidden>Custom target (KB)<input id="customTarget" type="number" min="10" max="100000" value="100"></label>
 </div>
-<div class="bar"><button class="p" id="go" disabled>Compress all</button><button id="clear" disabled>Clear</button><span class="quota" id="quota"></span></div>
+<div class="bar"><button class="p" id="go" disabled>Compress all</button><button id="clear" disabled>Clear</button><button id="zip" disabled>Download ZIP</button><span class="quota" id="quota"></span></div>
 <div id="list"></div>
 <div class="ad" data-ad>Advertisement (AdSense slot)</div>
 <h2>How it works</h2>
@@ -108,6 +111,12 @@
 
 <dialog id="keyd"><h2 style="margin-top:0">Enter your Pro key</h2><label class="f">Key<input type="text" id="keyin" autocomplete="off"></label><p id="keymsg" class="meta"></p><p><button class="p" id="keyok">Activate</button> <button id="keyx">Cancel</button></p></dialog>
 
+<dialog id="compare"><h2 style="margin-top:0">Before &amp; after</h2>
+<div class="compare" id="compareStage"><img id="compareOriginal" alt="Original"><img id="compareOutput" alt="Compressed"><div class="compareDivider" id="compareDivider"></div></div>
+<label class="f">Comparison<input id="compareRange" type="range" min="0" max="100" value="50"></label>
+<p id="compareMeta" class="meta"></p><p><button id="compareClose">Close</button></p></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
