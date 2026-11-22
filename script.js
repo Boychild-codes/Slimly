@@ -13,7 +13,7 @@ var mem={};
 function ls(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r?JSON.parse(r):mem[k]||null}localStorage.setItem(k,JSON.stringify(v))}catch(e){if(v===undefined)return mem[k]||null;mem[k]=v}}
 
 /* routing */
-var views=["home","pricing","faq","about","contact","privacy","terms","cookies"];
+var views=["home","how","uses","pricing","faq","about","contact","privacy","terms","cookies"];
 function route(){var h=(location.hash||"#home").slice(1);if(views.indexOf(h)<0)h="home";
 views.forEach(function(v){$(v).classList.toggle("on",v===h)});
 document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
