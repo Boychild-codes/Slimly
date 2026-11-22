@@ -21,7 +21,7 @@ window.scrollTo(0,0)}
 window.addEventListener("hashchange",route);route();
 $("sub").href=CONFIG.checkoutUrl;
 
-var menuToggle=$("menuToggle"),mainNav=$("mainNav"),menuBackdrop=$("menuBackdrop");
+var menuToggle=$("menuToggle"),mainNav=$("mainNav"),menuBackdrop=$("menuBackdrop"),menuClose=$("menuClose");
 function closeMobileMenu(){
  if(!mainNav||!menuToggle)return;
  mainNav.classList.remove("open");
@@ -40,6 +40,7 @@ if(menuToggle&&mainNav){
   if(menuBackdrop){menuBackdrop.hidden=!open}
  };
  mainNav.querySelectorAll("a").forEach(function(link){link.onclick=closeMobileMenu});
+ if(menuClose){menuClose.onclick=closeMobileMenu}
  if(menuBackdrop){menuBackdrop.onclick=closeMobileMenu}
  document.addEventListener("keydown",function(event){
   if(event.key==="Escape"&&mainNav.classList.contains("open")){closeMobileMenu();menuToggle.focus()}
