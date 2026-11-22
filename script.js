@@ -171,6 +171,64 @@ if(!cs.length)throw new Error("encode");
 cs.sort(function(a,b){return a.size-b.size});
 if(target){var fits=cs.filter(function(v){return v.size<=target&&v.size<it.f.size});if(fits.length)return fits[0]}
 return cs[0]}
+function downloadBlob(blob,name){
+ var a=document.createElement("a");
+ a.href=URL.createObjectURL(blob);
+ a.download=name;
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+ setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
+}
+var brandAsset=$("brandAsset"),brandFormat=$("brandFormat"),brandDownload=$("brandDownload"),brandStatus=$("brandStatus");
+function updateBrandExport(){
+ var isMark=brandAsset.value==="slimly-mark";
+ var format=brandFormat.value;
+ brandDownload.textContent=format==="svg"?"Download SVG":format==="png"?"Download PNG":"Download JPEG";
+ document.querySelector(".brand-export>img").src=brandAsset.value+".svg";
+ brandStatus.textContent=isMark?"App and social mark · 1024 × 1024 px":"Full logo · 2400 × 640 px";
+}
+if(brandAsset&&brandFormat){
+ brandAsset.onchange=updateBrandExport;
+ brandFormat.onchange=updateBrandExport;
+ updateBrandExport();
+ brandDownload.onclick=async function(){
+  var asset=brandAsset.value,format=brandFormat.value;
+  brandDownload.disabled=true;
+  brandStatus.textContent="Preparing download…";
+  try{
+   var svgResponse=await fetch(asset+".svg");
+   if(!svgResponse.ok)throw new Error("Logo file could not be loaded.");
+   var svgBlob=await svgResponse.blob();
+   if(format==="svg"){
+    downloadBlob(svgBlob,asset+"."+format);
+   }else{
+    var svgUrl=URL.createObjectURL(svgBlob);
+    var image=new Image();
+    await new Promise(function(resolve,reject){image.onload=resolve;image.onerror=function(){reject(new Error("Logo could not be rendered."))};image.src=svgUrl});
+    var isMark=asset==="slimly-mark";
+    var canvas=document.createElement("canvas");
+    canvas.width=isMark?1024:2400;
+    canvas.height=isMark?1024:640;
+    var context=canvas.getContext("2d");
+    context.imageSmoothingEnabled=true;
+    context.imageSmoothingQuality="high";
+    if(format==="jpeg"){context.fillStyle="#ffffff";context.fillRect(0,0,canvas.width,canvas.height)}
+    context.drawImage(image,0,0,canvas.width,canvas.height);
+    URL.revokeObjectURL(svgUrl);
+    var mime=format==="png"?"image/png":"image/jpeg";
+    var rasterBlob=await new Promise(function(resolve){canvas.toBlob(resolve,mime,format==="jpeg"?.95:undefined)});
+    if(!rasterBlob)throw new Error("Image export is not supported by this browser.");
+    downloadBlob(rasterBlob,asset+"."+format);
+   }
+   brandStatus.textContent="Download ready.";
+  }catch(error){
+   brandStatus.textContent=error.message||"The download could not be created.";
+  }finally{
+   brandDownload.disabled=false;
+  }
+ };
+}
 function shrinkVid(it){return new Promise(function(res,rej){
 if(!window.MediaRecorder){rej(new Error("x"));return}
 var v=document.createElement("video");v.src=it.url;v.playsInline=true;v.volume=0;v.onerror=function(){rej(new Error("load"))};
