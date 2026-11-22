@@ -69,10 +69,11 @@ button,.btn,select,input,textarea{min-height:44px}
 
 @media (max-width:760px){
  html{scroll-padding-top:calc(112px + env(safe-area-inset-top,0px))}
- header .w{gap:8px;padding-top:8px;padding-bottom:8px}
- .logo{font-size:1.25rem}
- .menu-toggle{display:flex;margin-left:auto;width:44px;height:44px;padding:10px;align-items:center;justify-content:center;flex-direction:column;gap:5px}
- .menu-toggle span{display:block;width:20px;height:2px;border-radius:2px;background:var(--ink)}
+ header .w{gap:12px;min-height:72px;padding-top:12px;padding-bottom:12px}
+ .logo{gap:10px;font-size:1.45rem}
+ .logo img{width:44px;height:44px;border-radius:11px}
+ .menu-toggle{display:flex;margin-left:auto;width:48px;height:48px;padding:12px;border:0;border-radius:10px;background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+ .menu-toggle span{display:block;width:26px;height:3px;border-radius:3px;background:var(--ink)}
  body.menu-open{overflow:hidden}
  nav{display:flex;position:fixed;z-index:30;top:0;right:0;width:min(82vw,320px);height:100dvh;margin:0;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(20px + env(safe-area-inset-bottom,0px));gap:5px;flex-direction:column;background:var(--panel);border-left:1px solid var(--line);box-shadow:-16px 0 40px rgba(0,0,0,.18);transform:translateX(105%);transition:transform .24s ease}
  nav.open{transform:translateX(0)}
@@ -116,8 +117,8 @@ button,.btn,select,input,textarea{min-height:44px}
 }
 
 @media (max-width:380px){
- .logo img{width:32px;height:32px}
- .logo{font-size:1.1rem}
+ .logo img{width:44px;height:44px}
+ .logo{font-size:1.35rem}
  .bar{grid-template-columns:1fr}
  .bar button{grid-column:1}
  .acts{grid-template-columns:1fr}
