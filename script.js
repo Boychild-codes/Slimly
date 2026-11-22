@@ -210,10 +210,11 @@ function downloadBlob(blob,name){
 var brandAsset=$("brandAsset"),brandFormat=$("brandFormat"),brandDownload=$("brandDownload"),brandStatus=$("brandStatus");
 function updateBrandExport(){
  var isMark=brandAsset.value==="slimly-mark";
+ var isCover=brandAsset.value==="slimly-project-cover";
  var format=brandFormat.value;
  brandDownload.textContent=format==="svg"?"Download SVG":format==="png"?"Download PNG":"Download JPEG";
  document.querySelector(".brand-export>img").src=brandAsset.value+".svg";
- brandStatus.textContent=isMark?"App and social mark · 1024 × 1024 px":"Full logo · 2400 × 640 px";
+ brandStatus.textContent=isMark?"App and social mark · 1024 × 1024 px":isCover?"Project cover · 1600 × 600 px":"Full logo · 2400 × 640 px";
 }
 if(brandAsset&&brandFormat){
  brandAsset.onchange=updateBrandExport;
@@ -225,18 +226,18 @@ if(brandAsset&&brandFormat){
   brandStatus.textContent="Preparing download…";
   try{
    var svgResponse=await fetch(asset+".svg");
-   if(!svgResponse.ok)throw new Error("Logo file could not be loaded.");
+   if(!svgResponse.ok)throw new Error("Asset file could not be loaded.");
    var svgBlob=await svgResponse.blob();
    if(format==="svg"){
     downloadBlob(svgBlob,asset+"."+format);
    }else{
     var svgUrl=URL.createObjectURL(svgBlob);
     var image=new Image();
-    await new Promise(function(resolve,reject){image.onload=resolve;image.onerror=function(){reject(new Error("Logo could not be rendered."))};image.src=svgUrl});
-    var isMark=asset==="slimly-mark";
+    await new Promise(function(resolve,reject){image.onload=resolve;image.onerror=function(){reject(new Error("Asset could not be rendered."))};image.src=svgUrl});
+    var isMark=asset==="slimly-mark",isCover=asset==="slimly-project-cover";
     var canvas=document.createElement("canvas");
-    canvas.width=isMark?1024:2400;
-    canvas.height=isMark?1024:640;
+    canvas.width=isMark?1024:isCover?1600:2400;
+    canvas.height=isMark?1024:isCover?600:640;
     var context=canvas.getContext("2d");
     context.imageSmoothingEnabled=true;
     context.imageSmoothingQuality="high";
