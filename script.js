@@ -21,6 +21,26 @@ window.scrollTo(0,0)}
 window.addEventListener("hashchange",route);route();
 $("sub").href=CONFIG.checkoutUrl;
 
+var menuToggle=$("menuToggle"),mainNav=$("mainNav");
+if(menuToggle&&mainNav){
+ menuToggle.onclick=function(){
+  var open=mainNav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",open?"true":"false");
+  menuToggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+ };
+ mainNav.querySelectorAll("a").forEach(function(link){
+  link.onclick=function(){mainNav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","Open navigation menu")}
+ });
+ document.addEventListener("keydown",function(event){
+  if(event.key==="Escape"&&mainNav.classList.contains("open")){
+   mainNav.classList.remove("open");
+   menuToggle.setAttribute("aria-expanded","false");
+   menuToggle.setAttribute("aria-label","Open navigation menu");
+   menuToggle.focus();
+  }
+ });
+}
+
 /* cookies and ads */
 function consent(){return ls("sl_ck")}
 function showCk(){$("ck").style.display="block"}
