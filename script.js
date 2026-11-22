@@ -21,24 +21,30 @@ window.scrollTo(0,0)}
 window.addEventListener("hashchange",route);route();
 $("sub").href=CONFIG.checkoutUrl;
 
-var menuToggle=$("menuToggle"),mainNav=$("mainNav");
+var menuToggle=$("menuToggle"),mainNav=$("mainNav"),menuBackdrop=$("menuBackdrop");
+function closeMobileMenu(){
+ if(!mainNav||!menuToggle)return;
+ mainNav.classList.remove("open");
+ document.body.classList.remove("menu-open");
+ menuToggle.setAttribute("aria-expanded","false");
+ menuToggle.setAttribute("aria-label","Open navigation menu");
+ if(menuBackdrop){menuBackdrop.hidden=true}
+}
 if(menuToggle&&mainNav){
  menuToggle.onclick=function(){
-  var open=mainNav.classList.toggle("open");
+  var open=!mainNav.classList.contains("open");
+  mainNav.classList.toggle("open",open);
+  document.body.classList.toggle("menu-open",open);
   menuToggle.setAttribute("aria-expanded",open?"true":"false");
   menuToggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  if(menuBackdrop){menuBackdrop.hidden=!open}
  };
- mainNav.querySelectorAll("a").forEach(function(link){
-  link.onclick=function(){mainNav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label","Open navigation menu")}
- });
+ mainNav.querySelectorAll("a").forEach(function(link){link.onclick=closeMobileMenu});
+ if(menuBackdrop){menuBackdrop.onclick=closeMobileMenu}
  document.addEventListener("keydown",function(event){
-  if(event.key==="Escape"&&mainNav.classList.contains("open")){
-   mainNav.classList.remove("open");
-   menuToggle.setAttribute("aria-expanded","false");
-   menuToggle.setAttribute("aria-label","Open navigation menu");
-   menuToggle.focus();
-  }
+  if(event.key==="Escape"&&mainNav.classList.contains("open")){closeMobileMenu();menuToggle.focus()}
  });
+ window.addEventListener("resize",function(){if(window.innerWidth>760)closeMobileMenu()});
 }
 
 /* cookies and ads */
